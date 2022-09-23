@@ -1,0 +1,22 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Source</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Base Price (Excl. GST)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of packages">
+            <td>{{ p.package_id }}</td>
+            <td>{{ p.source }}</td>
+            <td>{{ p.dest }}</td>
+            <td>Rs.{{ p.basic_fare }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,53 @@
+<div class="card my-5">
+    <div class="alert alert-success" role="alert" *ngIf="showMsg">
+        Added new package!
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #packageForm="ngForm">
+        <div class="form-group">
+          <label for="pk_id">Package ID</label>
+          <input type="text" [(ngModel)]="package.package_id" 
+            class="form-control" 
+            id="pk_id" 
+            name="pk_id" 
+            placeholder="Enter Package ID"
+            minlength=7
+            maxlength=7
+            required #pk_id="ngModel">
+            <div [hidden]="!pk_id.pristine" class="alert alert-danger">Package ID of 7 Digit is required</div>
+        </div>
+        <div class="form-group">
+          <label for="source">Source</label>
+          <input type="text" [(ngModel)]="package.source" 
+            class="form-control" 
+            id="source" 
+            name="source" 
+            placeholder="Enter Source (ex: HYD)"
+            required #source="ngModel">
+          <div [hidden]="!source.pristine" class="alert alert-danger">Source is required</div>
+        </div>
+        <div class="form-group">
+            <label for="dest">Destination</label>
+            <input type="text" [(ngModel)]="package.dest" 
+              class="form-control" 
+              id="dest" 
+              name="dest" 
+              placeholder="Enter Destination (ex: HYD)"
+              required #dest="ngModel">
+            <div [hidden]="!dest.pristine" class="alert alert-danger">Destination is required</div>
+          </div>
+          <div class="form-group">
+            <label for="basic_fare">Basic Fare</label>
+            <input type="number" [(ngModel)]="package.basic_fare" 
+              class="form-control" 
+              id="basic_fare" 
+              name="basic_fare" 
+              placeholder="Enter Basic Fare"
+              required #basic_fare="ngModel">
+            <div [hidden]="!basic_fare.pristine" class="alert alert-danger">Basic fare is required</div>
+          </div>
+        <button type="submit" [disabled]="!packageForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
